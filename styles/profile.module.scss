@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+.container{
+    position: relative;
+    display:flex;
+    top:4rem;
+    height:75vh;
+    .dashboard{
+        position:relative;
+       height:100%;
+        width:10vw;
+        min-width:10rem;
+        background-color: rgba(66, 249, 2, 0.75);
+        h1{
+            font-weight: 100;
+            font-size: 1.6rem;
+            line-height: 24px;
+            position:relative;
+            padding:.5rem;
+margin: 1rem;
+font-family: Roboto;
+font-style:normal;
+        }
+        .navbar{
+            position:relative;
+            height:100%;
+            width:100%;
+            display:flex;
+            align-items:flex-start;
+            justify-content:center;
+            nav{
+                display:flex;
+                justify-content:center;
+                top:0;
+                ul li{
+                    padding:.7rem 1rem;
+                    margin:.5rem;
+                    a{
+                    font-family:"Roboto",sans-serif;                   font-size:1rem;
+                    &:hover{
+                        color: #fff;
+                    }
+                }
+                    }
+                   
+            }
+        }
+
+        
+    }
+    .profile{
+        height:100%;
+        width:90vw;
+        display:block;
+        position:relative;
+        h1{
+            font-size:1.5rem;
+            margin:.5rem 1rem;
+        padding:.5rem;
+           }
+           h2{
+               font-size:1rem;
+               margin:.5rem 1rem;
+               padding:.5rem;
+               font-family:"Roboto",sans-serif ;
+               top:3.5rem;
+               position:absolute;
+               left:3rem;
+           }
+.inputs{
+   display:grid;
+   margin-top:1rem;
+   grid-template-columns:1fr 6fr;
+   grid-template-areas:"iconcol inputscol inputscol inputscol inputscol inputscol inputscol" ;
+    .icon{
+        font-size:5rem;
+        margin:1rem 4rem;
+        grid-area:iconcol;
+    }
+    .inputsec{
+        grid-area:inputscol;
+        display:block;
+        ul>li>input{
+            background-color: #E5E5E5;
+            margin: 1rem 2rem;
+            
+            width:35%;
+            height:2rem;
+            border-radius:4px;
+            font-size:1rem;
+            cursor:pointer;
+            text-align:center;
+            
+            &:hover{
+                color:2px rgba(66, 249, 2, 0.75);
+            }
+        }
+        .email{
+            width:74%;
+        }
+        .contact{
+            width:50%;
+        }
+        .region>input{
+            width:22%;
+        }
+        .socials{
+            width:50%;
+            height:4rem;
+        }
+        button{
+            position:absolute;
+            right:6rem;
+            bottom:1rem;
+            width:5rem;
+            height:2.5rem;
+            font-size:1rem;
+            border-radius:10px;
+            padding:.5rem;
+            color:white;
+            font-weight:bold;
+            background-color: rgba(66, 249, 2, 0.75);
+            
+
+        }
+    }
+}
+    }
+
+}
