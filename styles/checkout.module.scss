@@ -1,0 +1,119 @@
+.containercheckoutwrapper{
+    display:flex;
+    position:relative;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:85vh;
+    background-color:white;
+    
+   
+
+.containerCheckout{
+    top:2rem;
+    width:100%;
+    min-width: 30rem;
+    height:100%;
+    position:relative;
+    
+    background-color:gray;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-around;
+    border-radius: 10px;
+    overflow-x:scroll;
+    overflow-y:hidden !important;
+    overflow-x:hidden !important;
+    .back{
+       
+        height:1.5rem;
+    width:4rem;
+    position:absolute;
+    right:.3rem;
+    top:.3rem;
+    cursor:point;
+   
+    &:hover{
+        color:white;
+        text-decoration:underline;
+    }
+    } 
+    .downloadHeader{
+        color:white;
+        max-height:3.5rem;
+        position:absolute;
+        top:0;
+        margin:.5rem auto;
+        width:90%;
+        padding:5px;
+        h1{
+            font-family:"Roboto",sans-serif; 
+            font-size:1rem;
+            text-align: center;
+        }
+    }
+    
+    .btn{
+            width:50%;
+            position:absolute;
+            bottom:5%;
+            margin:.5rem 25%;
+            background-color:rgba(66, 249, 2, 1);
+            border-radius:5px;
+            color:white;
+            outline:none;
+            border:none;
+            cursor:pointer;
+        }
+    
+    .checkoutCard{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        height:20rem;
+        width:25rem;
+        margin:2rem;
+        border-radius:10px;
+        background-color:white;
+        margin:.5rem auto;
+        position:relative;
+        &:hover{
+            .icon{
+                display:inline-block;
+            }
+        }
+        .icon{
+            display:none;
+            height:1.5rem;
+        width:1.5rem;
+        position:absolute;
+        right:.3rem;
+        top:.3rem;
+        } 
+       
+        
+        .itemName{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            width:100%;
+            height:100%;
+            .pitchwrapper{
+                top:4rem;
+                position:relative;width:90%;
+                height:80%;
+            p{
+                font-family:"Roboto",sans-serif; 
+                font-size:1rem;
+                margin-left:1rem;
+                text-overflow: ellipsis;
+                
+            }}
+            span{
+                text-align: center;
+            }
+        }
+    }
+}
+}

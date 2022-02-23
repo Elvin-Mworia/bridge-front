@@ -3,29 +3,35 @@ import Link from "next/link"
 import AccountCircleIcon  from '@mui/icons-material/AccountCircle';
 import Navbar from "../components/Navbar.js";
 import axios from "axios";
-import {useState} from "react";
+import {useState,useContext,useEffect} from "react";
+import {usercontext} from "../components/Context/UserContext";
+import { SettingsBrightnessOutlined } from "@mui/icons-material";
 
-export async function getStaticProps(){
-    const resp=await fetch("http://localhost:3001/user/:3ca65014-80e2-45d4-9845-bb599c3a5da2");
-    const user=await resp.json();
-    const res=await fetch("http://localhost:3001/bio/:3ca65014-80e2-45d4-9845-bb599c3a5da2");
-    const bio=await res.json();
+// export async function getStaticProps(){
+//     const {customer}=useContext(usercontext);
+//     const resp=await fetch("http://localhost:3001/user/:3ca65014-80e2-45d4-9845-bb599c3a5da2");
+//     const user=await resp.json();
+//     const res=await fetch("http://localhost:3001/bio/:3ca65014-80e2-45d4-9845-bb599c3a5da2");
+//     const bio=await res.json();
    
- //    console.log(pitches);
-     return {
-         props:{info:bio,
-        user:user}
-     }
+//  //    console.log(pitches);
+//      return {
+//          props:{info:bio,
+//         user:user}
+//      }
         
 
-}
+// }
 
-export default function Profile({info,user}){
+export default function Profile(){
 const [contact,setContact]=useState("");
 const [city,setCity]=useState("");
 const [county,setCounty]=useState("");
 const [country,setCountry]=useState("");
 const [socialmedia,setSocialmedia]=useState("");
+const [user,setUser]=useState({});
+const [bio,setBio]=useState({});
+const {customer}=useContext(usercontext);
 const data={
     contact,
     city,
@@ -34,11 +40,22 @@ const data={
     socialmedia
 
 }
+useEffect( ()=>{
+    axios.get(`http://localhost:3001/user/:${customer.id}`).then((res)=>{
+        console.log(res.data);
+         setUser(res.data);
+    })
+    axios.get(`http://localhost:3001/bio/:${customer.id}`).then((res)=>{
+        console.log(res.data);
+        setBio(res.data);
+    })
 
+ 
+},[])
 
 function submit(e){
     e.preventDefault();
-    axios.patch(`http://localhost:3001/bio/update/:${userid}`,data).then((res)=>{});
+    axios.patch(`http://localhost:3001/bio/update/:${customer.id}`,data).then((res)=>{});
 }
     return(
         <div>
@@ -84,21 +101,21 @@ function submit(e){
                                <li>
                                <input  type="tel" placeholder="Contact Number" className={styles.contact}
                                onChange={(e)=>setContact(e.target.value) }
-                               value={info.contact}
+                               value={bio?.contact}
                                />
                                </li>
                                <li className={styles.region}>
                                <input  type="text" placeholder="City"
-                               onChange={(e)=>setCity(e.target.value)} value={info.city}/>
+                               onChange={(e)=>setCity(e.target.value)} value={bio?.city}/>
                                <input type="text" onChange={(e)=>setCounty(e.target.value)}placeholder="County"
-                               value={info.county}
+                               value={bio?.county}
                                />
                                <input type="text" placeholder="Country"
-                               onChange={(e)=>setCountry(e.target.value)} value={info.country} />
+                               onChange={(e)=>setCountry(e.target.value)} value={bio?.country} />
                            </li>
                            <li>
                                <input  type="text" placeholder="Social Media handles" className={styles.socials}
-                               onChange={(e)=>setSocialmedia(e.target.value)} value={info.socialmedia}/>
+                               onChange={(e)=>setSocialmedia(e.target.value)} value={bio?.socialmedia}/>
                                </li>
                              
 

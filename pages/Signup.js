@@ -126,9 +126,10 @@ import {useRouter} from "next/router";
             //   })
           }
           else{
-            axios.post("http://localhost:3001/stripe/pay",{email,amount:2}).then((res)=>{
+            axios.post("http://localhost:3001/stripe/pay",{email,amount:"2000"}).then((res)=>{
                 console.log(res)
                 final();
+                alert("please login and fill in the details in your profile to make it easier for investors to contact you")
                 })
             
           }

@@ -67,6 +67,30 @@
                 height:3rem;
             width:3rem;
             }
+            .btn{
+                position:relative;
+                width:5rem;
+                height:1.7rem;
+                margin:0 ;
+                background-color:rgba(66, 249, 2, 1);
+                border-radius:5px;
+                color:white;
+                outline:none;
+                border:none;
+                cursor:pointer;
+            }
+            .btnDisabled{
+                width:5rem;
+                position:relative;
+                height:1.7rem;
+                margin:0 ;
+                background-color:gray;
+                border-radius:5px;
+                color:white;
+                outline:none;
+                border:none;
+                cursor:pointer;
+            }
         }
     }
     .cardcontainer{

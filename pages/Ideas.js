@@ -4,9 +4,10 @@ import AddCircleOutlineSharpIcon from '@mui/icons-material/AddCircleOutlineSharp
 import WbIncandescentSharpIcon from '@mui/icons-material/WbIncandescentSharp';
 import Navbar from "../components/Navbar.js";
 import axios from "axios";
-import {useMemo,useState} from "react";
+import {useMemo,useContext,useState,useEffect} from "react";
 import Idea from "../components/addIdea.js"
-
+import {cartContext} from "../components/Context/CartContext.js";
+import {useRouter} from "next/router";
 
 export  async function getServerSideProps(){
     //     var list=[];
@@ -26,7 +27,15 @@ export  async function getServerSideProps(){
 
 function Ideas({ideas}){ 
     const[state,setState]=useState(false);
-
+    const {cartstate,dispatch}=useContext(cartContext);
+    const router=useRouter();
+var cart;  
+if (typeof window !== 'undefined') {
+    cart=JSON.parse(localStorage.getItem("cartstate"));
+};  
+useEffect(()=>{},[cartstate]);
+    
+   
     return(
         <div className={styles.container}>
             <Navbar/>
@@ -38,9 +47,13 @@ function Ideas({ideas}){
             <div className={styles.iconleft}>
                 <div className={styles.cart}>
             <ShoppingCartSharpIcon  className={styles.icon} />
-            <p>1</p>
+            <p>{cartstate.totalItems}</p>
             </div>
             <AddCircleOutlineSharpIcon onClick={()=>(setState(!state))} className={styles.icon}/>
+            {
+            
+            cartstate.Items.length>0 ? <button className={styles.btn} onClick={()=>{router.push("/checkout")}}>Check Out</button>
+             : <button className={styles.btnDisabled} onClick={()=>{router.push("/checkout")}}disabled="true">Check Out</button>} 
             </div>
 
             </div>
@@ -53,7 +66,7 @@ function Ideas({ideas}){
                         <div className={styles.ideacontainer}>
                             <p>{idea.pitch}</p>
                         </div>
-                          <button onClick={null}>Buy for ${idea.price}</button>
+                          <button onClick={()=>{dispatch({type:"ADD_TO_CART",payload:idea})}}>Buy for ${idea.price}</button>
                     </div>
                     )
                }

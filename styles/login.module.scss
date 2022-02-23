@@ -27,7 +27,13 @@
     flex-direction: column;
     justify-content:center; 
     align-items:center;
-
+    .icon{
+        height:1.5rem;
+    width:1.5rem;
+    position:absolute;
+    right:.5rem;
+    top:.5rem;
+    } 
    
    input{
         height:1.5rem;
@@ -41,8 +47,8 @@
         text-align:center;
 
     }
-    input:first-child{
-        margin-top:1.5rem;
+    form:nth-child(2){
+        margin-top:2.5rem;
     }
    
    
