@@ -71,11 +71,27 @@ font-style:normal;
    margin-top:1rem;
    grid-template-columns:1fr 6fr;
    grid-template-areas:"iconcol inputscol inputscol inputscol inputscol inputscol inputscol" ;
+   .iconwrapper{
+       display:flex;
+       grid-area:iconcol;
+       width:100%;
+       height:30%;
+   }
     .icon{
         font-size:5rem;
         margin:1rem 4rem;
         grid-area:iconcol;
+       
     }
+    // .icon1{
+    //    position:fixed;
+    //    bottom:100%;
+    //    margin:1rem 4rem;
+
+    //     z-index:1000;
+    //   bottom:0;
+
+    // }
     .inputsec{
         grid-area:inputscol;
         display:block;
@@ -89,6 +105,7 @@ font-style:normal;
             font-size:1rem;
             cursor:pointer;
             text-align:center;
+            
             
             &:hover{
                 color:2px rgba(66, 249, 2, 0.75);

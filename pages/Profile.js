@@ -6,7 +6,7 @@ import axios from "axios";
 import {useState,useContext,useEffect} from "react";
 import {usercontext} from "../components/Context/UserContext";
 import { SettingsBrightnessOutlined } from "@mui/icons-material";
-
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 // export async function getStaticProps(){
 //     const {customer}=useContext(usercontext);
 //     const resp=await fetch("http://localhost:3001/user/:3ca65014-80e2-45d4-9845-bb599c3a5da2");
@@ -29,6 +29,7 @@ const [city,setCity]=useState("");
 const [county,setCounty]=useState("");
 const [country,setCountry]=useState("");
 const [socialmedia,setSocialmedia]=useState("");
+const [image,setImage]=useState("");
 const [user,setUser]=useState({});
 const [bio,setBio]=useState({});
 const {customer}=useContext(usercontext);
@@ -37,7 +38,8 @@ const data={
     city,
     county,
     country,
-    socialmedia
+    socialmedia,
+    image
 
 }
 useEffect( ()=>{
@@ -85,13 +87,21 @@ function submit(e){
                 <h1>My Profile</h1>
                 <h2>Edit Profile</h2>
                 <div className={styles.inputs}>
-                    < AccountCircleIcon className={styles.icon}/>
+                    <div className={styles.iconwrapper}>
+                    < AccountCircleIcon className={styles.icon} onClick={null}/>
+                    {/* <AddPhotoAlternateIcon className={styles.addphoto}/> */}
+                    </div>
                     <div className={styles.inputsec}>
                         <form onSubmit={submit}>
                         <ul>
                            <li>
                                <input  type="text" placeholder="Firstname" value={user?.firstname} disabled/>
                                <input type="text" placeholder="Lastname" value={user?.lastname} disabled />
+                           </li>
+                           <li >
+                               
+                           <input type="file"  placeholder="choose photo" enctype="multipart/form-data" name="file" onChange={(e)=>e.target.files[0]}/>
+                           <label>Choose a photo to use as your profile image</label>
                            </li>
                            <li>
                                <input  type="email" placeholder="Email" className={styles.email}

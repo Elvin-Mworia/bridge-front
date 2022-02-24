@@ -27,7 +27,7 @@ function Navbar(){
                         </Link>
                     </li>
                     {
-                       customertype==="investor" && loginstate.isLoggedIn ?  <li className="p-4 my-0 mx-3"> 
+                       customertype==="Investor" && loginstate.isLoggedIn ?  <li className="p-4 my-0 mx-3"> 
                         <Link href="/Pitches">
                             <a >Pitches</a>
                         </Link>
