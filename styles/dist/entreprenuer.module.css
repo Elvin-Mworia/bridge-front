@@ -1,0 +1,70 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  outline: 1px solid black;
+  height: 10rem;
+  width: 7rem;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem;
+  background-color: #42f902;
+}
+
+.container .cancel {
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
+}
+
+.container .image {
+  width: 4rem;
+  height: 4rem;
+}
+
+.container .image .imge {
+  object-fit: fill;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 20px;
+}
+
+.container .image .icon {
+  height: 100%;
+  width: 100%;
+  color: white;
+}
+
+.container section ul .name {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container section ul .name span {
+  font-size: .8rem;
+}
+
+.container section ul li {
+  display: flex;
+  justify-content: center;
+}
+
+.container section ul li span {
+  font-size: 1rem;
+  margin: .2rem;
+}
+
+.container section ul li .contact {
+  font-size: .7rem;
+  font-weight: bold;
+}
+
+.container section ul li .socialmedia {
+  font-size: .5rem;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=entreprenuer.module.css.map */

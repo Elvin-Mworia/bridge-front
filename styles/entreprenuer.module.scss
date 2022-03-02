@@ -1,0 +1,70 @@
+.container{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    outline:1px solid black;
+    height:10rem;
+    width:7rem;
+    border-radius:5px;
+    align-items:center;
+    justify-content:center;
+    padding:.5rem;
+    background-color:rgba(66, 249, 2, 1);
+    .cancel{
+        height:1rem;
+        width:1rem;
+        position:absolute;
+        right:.5rem;
+        top:.5rem;
+    }
+    .image{
+        width:4rem;
+        height:4rem;
+        .imge{
+            object-fit:fill;
+            height:3rem;
+            width:3rem;
+            border-radius:20px;
+        }
+        .icon{
+            height:100%;
+            width:100%;
+            
+            color:white;
+        }
+    }
+    section{
+        ul{
+            .name{
+                display:flex;
+                justify-content:space-evenly;
+                span{
+                    font-size:.8rem;
+                }
+            }
+            
+            li{
+                display:flex;
+                justify-content:center;
+                
+            span{
+                font-size:1rem;
+                margin:.2rem;
+            }
+            .contact{
+                font-size:.7rem;
+                font-weight:bold;
+
+            }
+            .socialmedia{
+                font-size:.5rem;
+                font-weight:bold;
+
+            }
+            
+        }
+        
+    }
+    }
+
+}

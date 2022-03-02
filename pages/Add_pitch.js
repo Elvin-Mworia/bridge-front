@@ -1,9 +1,24 @@
 import styles from "../styles/add.module.scss"
 import Navbar from "../components/Navbar.js";
-import {useState} from "react";
+import {useState,useContext} from "react";
+import {usercontext} from "../components/Context/UserContext";
+import axios from "axios";
 export default function Add(){
     const[value,setValue]= useState("");
-    console.log(value);
+    const {customer}=useContext(usercontext);
+    const data={
+        id:customer.id,
+        pitch:value
+    }
+ 
+    function submit(e){
+        e.preventDefault();
+   axios.post("http://localhost:3001/pitch/create",data).then((res)=>{
+       setValue("");
+       alert("Your pitch was submitted,Thank you and all the best");
+   })
+
+    }
     return(
         <div className={styles.container}> 
         <Navbar/>
@@ -16,7 +31,7 @@ export default function Add(){
            placeholder="Write Here" />
 
            
-<button type="submit" onClick={()=>(setValue(""))}>Post</button>
+<button type="submit" onClick={submit}>Post</button>
             </form>
             
         </div>

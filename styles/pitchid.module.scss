@@ -11,23 +11,16 @@
     align-items:flex-start;
     .card{
         display:inline-block;
-        width:18rem;
-        height:17rem;
+        width:30rem;
+        height:25rem;
         border-radius:5px;
-        border:1px solid rgb(0, 235, 0);
+       
         margin:1rem;
         transition:transform .5s ease-in-out;
-        footer{
-            position: relative;
-            margin-top:auto;
-            justify-self:flex-start;
-        }
-        .semicard{
-                display:relative;
-                z-index:1000;
-                bottom:1rem;
-                right:1rem;
-            
+        section{
+            margin-top:2.5rem;
+            margin-bottom:0;
+            width:7rem;
         }
         &:hover{
             
@@ -57,7 +50,7 @@ p{
     text-overflow: ellipsis;
     white-space:wrap;
     position:relative;
-    width:15rem;
+    width:25rem;
     height:11rem;
     padding:.5rem;
     font-size: .8rem;

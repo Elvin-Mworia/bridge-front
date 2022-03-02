@@ -7,6 +7,8 @@ import {useState,useContext,useEffect} from "react";
 import {usercontext} from "../components/Context/UserContext";
 import { SettingsBrightnessOutlined } from "@mui/icons-material";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import Image from "next/image";
+import profilepic from "../components/profilepic.png";
 // export async function getStaticProps(){
 //     const {customer}=useContext(usercontext);
 //     const resp=await fetch("http://localhost:3001/user/:3ca65014-80e2-45d4-9845-bb599c3a5da2");
@@ -23,41 +25,50 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 // }
 
+
 export default function Profile(){
 const [contact,setContact]=useState("");
 const [city,setCity]=useState("");
 const [county,setCounty]=useState("");
 const [country,setCountry]=useState("");
 const [socialmedia,setSocialmedia]=useState("");
-const [image,setImage]=useState("");
+const [images,setImage]=useState("");
 const [user,setUser]=useState({});
 const [bio,setBio]=useState({});
 const {customer}=useContext(usercontext);
+
 const data={
     contact,
     city,
     county,
     country,
     socialmedia,
-    image
+    images:Object.assign({},images)
+
 
 }
+
 useEffect( ()=>{
     axios.get(`http://localhost:3001/user/:${customer.id}`).then((res)=>{
-        console.log(res.data);
+       
          setUser(res.data);
     })
-    axios.get(`http://localhost:3001/bio/:${customer.id}`).then((res)=>{
+    axios.get(`http://localhost:3001/bio/data/:${customer.id}`).then((res)=>{
         console.log(res.data);
         setBio(res.data);
     })
+   
 
  
 },[])
 
 function submit(e){
     e.preventDefault();
-    axios.patch(`http://localhost:3001/bio/update/:${customer.id}`,data).then((res)=>{});
+    console.log(images);
+    axios.post(`http://localhost:3001/bio/update/:${customer.id}`,data).then((res)=>{
+        console.log(res.data);
+        alert("Profile updated successfully");
+    });
 }
     return(
         <div>
@@ -88,11 +99,12 @@ function submit(e){
                 <h2>Edit Profile</h2>
                 <div className={styles.inputs}>
                     <div className={styles.iconwrapper}>
-                    < AccountCircleIcon className={styles.icon} onClick={null}/>
-                    {/* <AddPhotoAlternateIcon className={styles.addphoto}/> */}
+                    {/* < AccountCircleIcon className={styles.icon} onClick={null}/> */}
+                    {bio ? <div className={styles.image}><Image src={profilepic} alt=""  layout="responsive"/></div> : <AddPhotoAlternateIcon className={styles.icon}/>}
+                   
                     </div>
                     <div className={styles.inputsec}>
-                        <form onSubmit={submit}>
+                        <form onSubmit={submit} encType="multipart/form-data">
                         <ul>
                            <li>
                                <input  type="text" placeholder="Firstname" value={user?.firstname} disabled/>
@@ -100,7 +112,7 @@ function submit(e){
                            </li>
                            <li >
                                
-                           <input type="file"  placeholder="choose photo" enctype="multipart/form-data" name="file" onChange={(e)=>e.target.files[0]}/>
+                           <input type="file"  placeholder="choose photo"  name="images" onChange={(e)=>setImage(e.target.files[0])}/>
                            <label>Choose a photo to use as your profile image</label>
                            </li>
                            <li>

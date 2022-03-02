@@ -91,10 +91,23 @@
   height: 30%;
 }
 
+.container .profile .inputs .image {
+  height: 5rem;
+  width: 5rem;
+  margin: 1.5rem 4rem;
+  grid-area: iconcol;
+  outline: 1px solid black;
+  border-radius: 100px;
+  padding: .5rem;
+}
+
 .container .profile .inputs .icon {
   font-size: 5rem;
-  margin: 1rem 4rem;
+  margin: 1.5rem 4rem;
   grid-area: iconcol;
+  outline: 1px solid black;
+  border-radius: 100px;
+  padding: .5rem;
 }
 
 .container .profile .inputs .inputsec {
@@ -136,8 +149,8 @@
 
 .container .profile .inputs .inputsec button {
   position: absolute;
-  right: 6rem;
-  bottom: 1rem;
+  right: 3rem;
+  bottom: 0;
   width: 5rem;
   height: 2.5rem;
   font-size: 1rem;

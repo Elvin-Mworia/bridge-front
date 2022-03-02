@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar.js";
 import { RestaurantMenuTwoTone } from "@mui/icons-material";
 import {useRouter} from "next/router";
 import Link from "next/link";
+import Entreprenuer from "../components/entreprenuer.js";
+import {useState,useContext} from "react";
 
 // export async function getStaticPaths(){
 
@@ -24,20 +26,35 @@ import Link from "next/link";
 
 // }
 
+
 export  async function getServerSideProps(){
-    
+//     var user;
+// if (typeof window !== 'undefined') {
+//     user=JSON.parse(localStorage.getItem("user"));
+// }
+     //  var pitch
        const res=await fetch("http://localhost:3001/pitch");
+    //    var User=await fetch(`http://localhost:3001/user/:${user.id}`);
+    //   User=await res.json();
        const pitches= await res.json();
     //    console.log(pitches);
+    // if(User.plan==="gold"){
+    //     pitch=pitches;
+    // }
+    // else if( User.plan==="silver"){
+    //     pitch=pitches.slice(0,11);
+      
+    // }
+    // else{
+    //     pitch=pitches.slice(0,7);
+    // }
+
         return {
-            props:{ideas:pitches},
-         
-        }
-           
-
+            props:{ideas:pitches}
 }
-
+}
 export default function Pitches({ideas}){
+    const [state,setState]=useState(true);
   
     return(
         <div>
@@ -48,10 +65,13 @@ export default function Pitches({ideas}){
 return(<Link href={`/Pitches/${idea.id}`} key={idea.id}>
 <a className={styles.card}  >
     <p>{idea.pitch}</p>
-    <AccountCircleIcon className={styles.icon}/>
-    <span>{idea.time}</span>
+    <AccountCircleIcon className={styles.icon} onClick={(e)=>{setState(!state)}}/>
+    <span>Date:{idea.createdAt.substring(0,9)}</span>
+     <Entreprenuer className={styles.semicard}  id={idea.entreprenuer} trigger={state} setTrigger={setState} />
+    
     </a>
     </Link>
+   
     
     )
     

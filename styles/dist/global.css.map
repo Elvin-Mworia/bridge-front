@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["global.scss"],"sourcesContent":["$bg-primary:rgb(22, 82, 0);\r\n$f-primary1:poppins;\r\n$f-primary2:Roboto;\r\n$btn-color:rgb(19, 3, 34);\r\n$mobile-view:600px;\r\n$tablet-view:960px;"],"file":"global.css"}

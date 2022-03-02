@@ -1,0 +1,331 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-width: 960px !important;
+  height: 1328px;
+  overflow-x: hidden;
+}
+
+.container .navbar {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  background-color: transparent;
+  opacity: 0.8;
+}
+
+.container .hero {
+  position: relative;
+  display: flex;
+  overflow: visible;
+  top: 0;
+  width: 100vw;
+  height: 30rem;
+}
+
+@media screen and (max-width: 960px) {
+  .container .hero .blob1 {
+    width: 15rem !important;
+    height: 5rem;
+  }
+  .container .hero .blob1 svg {
+    height: 10rem;
+    right: 7rem;
+  }
+  .container .hero .rightblob p {
+    font-size: 1rem;
+  }
+  .container .hero .leftblob p {
+    font-size: 1rem;
+  }
+  .container .hero .first .content .blob3 {
+    display: none !important;
+  }
+}
+
+.container .blob {
+  display: flex;
+  flex-basis: auto;
+  position: absolute;
+  width: 18rem;
+  height: 25rem;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
+}
+
+.container .blob1 {
+  position: absolute;
+  width: 20rem;
+  height: 13rem;
+  margin-top: 12rem;
+  right: 10rem;
+  z-index: 500;
+}
+
+.container .blob2 {
+  width: 18rem;
+  display: flex;
+  margin-top: 18rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 18rem;
+  z-index: 500;
+}
+
+.container P {
+  font-family: "Roboto",sans-serif;
+  font-size: 1.5rem;
+}
+
+.container .leftblob {
+  position: absolute;
+  margin-top: 10rem;
+  margin-left: 6rem;
+  z-index: 1000;
+}
+
+.container .rightblob {
+  position: absolute;
+  margin-top: 13rem;
+  margin-left: 70vw;
+  z-index: 1000;
+  color: white;
+  display: flex;
+}
+
+.second {
+  position: relative;
+  width: 100vw;
+  background-color: #e5e5e5;
+  height: 20rem;
+  display: grid;
+  grid-template-columns: 1fr .5fr 1fr;
+  grid-template-areas: "first sec third";
+}
+
+.second .first {
+  grid-template-areas: first;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.second .first .content {
+  width: 80%;
+  margin: 1rem;
+}
+
+.second .first .content p {
+  font-family: "Roboto",sans-serif;
+  font-size: 1.1rem;
+}
+
+.second .first .content b {
+  color: rgba(66, 249, 2, 0.75);
+  font-weight: 1000;
+}
+
+.second .first .blob3 {
+  align-self: flex-end;
+  margin-right: 2.5rem;
+}
+
+.second .contentRight {
+  grid-area: third;
+  display: flex;
+  flex-direction: column;
+}
+
+.second .contentRight p {
+  font-family: "Roboto",sans-serif;
+  font-size: 1.1rem;
+  margin-top: 3rem;
+  margin-left: 3rem;
+}
+
+.second .contentRight b {
+  color: rgba(66, 249, 2, 0.75);
+  font-weight: 1000;
+  font-size: 2.5rem;
+}
+
+.second .contentRight .blob4 {
+  align-self: center;
+  margin-bottom: 2.5rem;
+}
+
+.second .contentMiddle {
+  grid-area: sec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.second .contentHolder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.second .contentHolder p {
+  margin-top: 1.5rem;
+}
+
+.second .contentHolder p span b {
+  font-size: 1.5rem;
+}
+
+.second .contentHolder b {
+  color: red;
+}
+
+.second .contentHolder .blob5 {
+  position: relative;
+  align-self: center;
+  height: 3rem;
+  width: 2rem;
+  margin-top: .5rem;
+}
+
+.second .contentHolder a {
+  cursor: pointer;
+  margin-left: 3.5rem;
+}
+
+.second .contentHolder a:hover {
+  text-decoration: underline;
+}
+
+.second .contentHolder a b {
+  color: rgba(66, 249, 2, 0.75);
+  font-size: 1rem;
+}
+
+.plans {
+  position: relative;
+  width: 100vw;
+  height: 25rem;
+}
+
+.plans .blob6 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.plans .pricing {
+  font-family: "Roboto",sans-serif;
+  position: absolute;
+  top: 2rem;
+  z-index: 45;
+  display: block;
+  width: 100vw;
+  height: 25rem;
+}
+
+.plans .pricing h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.plans .pricing #entre {
+  margin-top: 3rem;
+}
+
+.plans .pricing .investor {
+  display: flex;
+  width: 100vw;
+  height: 40%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.plans .pricing .investor .card {
+  position: relative;
+  width: 15%;
+  height: 100%;
+  background-color: #c4c4c4;
+  min-width: 10rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  display: inline-block;
+  transition: transform .2s ease-in-out;
+}
+
+.plans .pricing .investor .card:hover {
+  transform: translateY(-4px);
+  cursor: pointer;
+}
+
+.plans .pricing .investor .card #bronze {
+  color: crimson;
+  text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
+}
+
+.plans .pricing .investor .card #silver {
+  color: silver;
+  text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+}
+
+.plans .pricing .investor .card #gold {
+  color: gold;
+  text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
+}
+
+.plans .pricing .investor .card h2 {
+  text-align: center;
+  text-shadow: 0 0 1px black, 0 0 11px black, 0 0 1px black, 0 0 1px black;
+}
+
+.plans .pricing .investor .card ul {
+  text-align: center;
+}
+
+.plans .pricing .investor .card ul li {
+  font-size: 0.8rem;
+  padding: .2rem;
+  color: black;
+  font-weight: bold;
+}
+
+.plans .pricing .entreprenuer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 40%;
+}
+
+.plans .pricing .entreprenuer .cardEntreprenuer {
+  position: relative;
+  width: 15%;
+  height: 100%;
+  background-color: #c4c4c4;
+  margin: 1rem;
+  min-width: 10rem;
+  transition: transform .2s ease-in-out;
+  border-radius: 1rem;
+}
+
+.plans .pricing .entreprenuer .cardEntreprenuer:hover {
+  transform: translateY(-4px);
+  cursor: pointer;
+}
+
+.plans .pricing .entreprenuer .cardEntreprenuer h1 {
+  text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
+}
+
+.plans .pricing .entreprenuer .cardEntreprenuer h2 {
+  font-size: .7rem;
+  text-align: center;
+  padding: .3rem;
+}
+
+/*# sourceMappingURL=index.module.css.map */

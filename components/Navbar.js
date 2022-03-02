@@ -4,9 +4,12 @@ import {useRef,useState,useContext} from "react"
 import {Logincontext} from './Context/AppContext.js';
 import {useRouter} from "next/router";
 import {usercontext} from './Context/UserContext.js';
+import MenuIcon from '@mui/icons-material/Menu';
+import styles from "../styles/navbar.module.scss";
 
 function Navbar(){
   const[state,setState]=useState(false);
+  const [show,setShow]=useState(false);
   const {loginstate,dispatch}=useContext(Logincontext);
   const {customer}=useContext(usercontext);
   const router=useRouter();
@@ -14,20 +17,21 @@ function Navbar(){
  
     return(
         <>
-        <div className="navbar bg-white fixed h-12 w-screen flex flex-row justify-between bg-transparent bg-opacity-75 z-50"> 
+        <div className=
+        {styles.navbar}> 
                 <Link href="/">
-                <h1 className="logo text-2xl p-4 mx-5"><a>Bridge</a></h1>
+                <h1 ><a>Bridge</a></h1>
                 </Link>
-            <nav className="flex flex-row justify-evenly w-3/4 ">
+            <nav  >
            
-                <ul className="flex flex-row justify-evenly flex-shrink text-sm  " >
-                    <li className="p-4 my-0 mx-3 ">
+                <ul className={styles.navbarmenu} >
+                    <li >
                         <Link href="/">
-                            <a >Home</a>
+                            <a className={styles.anchor} >Home</a>
                         </Link>
                     </li>
                     {
-                       customertype==="Investor" && loginstate.isLoggedIn ?  <li className="p-4 my-0 mx-3"> 
+                       customertype==="Investor" && loginstate.isLoggedIn ?  <li > 
                         <Link href="/Pitches">
                             <a >Pitches</a>
                         </Link>
@@ -35,8 +39,8 @@ function Navbar(){
                     }
                   
                     {
-                       customertype==="entrepreneur" && loginstate.isLoggedIn  ? 
-                        <li className="p-4 my-0 mx-3"> 
+                       customertype==="Entreprenuer" && loginstate.isLoggedIn  ? 
+                        <li > 
                         <Link href="/Profile">
                             <a >My Profile</a>
                         </Link>
@@ -45,29 +49,30 @@ function Navbar(){
                     }
                 
                 {
-                      customertype==="entrepreneur" && loginstate.isLoggedIn  ? 
-                      <li className="p-4 my-0 mx-3"> 
+                      customertype==="Entreprenuer" && loginstate.isLoggedIn  ? 
+                      <li > 
                       <Link href="/Add_pitch">
                           <a >Add Pitch</a>
                       </Link>
                   </li>:""
 
                 }
-                      <li className="p-4 my-0 mx-3"> 
+                      <li > 
                         <Link href="/Ideas">
                             <a >Ideas</a>
                         </Link>
                     </li>
                     {
                      loginstate.isLoggedIn ? 
-                      <li className="p-4 my-0 mx-3"> 
+                      <li > 
                       <Link href="/Bought">
                           <a >Bought</a>
                       </Link>
                   </li>:""
 
                 }
-                    <li className="p-4 my-0 mx-3">
+                    <li 
+                    >
                         <Link href="#">
                            {
                             
@@ -76,11 +81,82 @@ function Navbar(){
                         </Link> 
                        
                     </li>
-                 
+                  
                 </ul>
+                <MenuIcon className={styles.menuicon} onClick={(e)=>setShow(!show)}/>
+              {show ?  <div className={styles.sidebar}>
+                <nav className={styles.sidebarNav}  >
+           
+           <ul className={styles.sidebarmenu} >
+               <li >
+                   <Link href="/">
+                       <a className={styles.anchor} >Home</a>
+                   </Link>
+               </li>
+               {
+                  customertype==="Investor" && loginstate.isLoggedIn ?  <li > 
+                   <Link href="/Pitches">
+                       <a >Pitches</a>
+                   </Link>
+               </li>:""
+               }
+             
+               {
+                  customertype==="entrepreneur" && loginstate.isLoggedIn  ? 
+                   <li > 
+                   <Link href="/Profile">
+                       <a >My Profile</a>
+                   </Link>
+               </li>:''
+
+               }
+           
+           {
+                 customertype==="entrepreneur" && loginstate.isLoggedIn  ? 
+                 <li > 
+                 <Link href="/Add_pitch">
+                     <a >Add Pitch</a>
+                 </Link>
+             </li>:""
+
+           }
+                 <li > 
+                   <Link href="/Ideas">
+                       <a >Ideas</a>
+                   </Link>
+               </li>
+               {
+                loginstate.isLoggedIn ? 
+                 <li > 
+                 <Link href="/Bought">
+                     <a >Bought</a>
+                 </Link>
+             </li>:""
+
+           }
+               <li 
+               >
+                   <Link href="#">
+                      {
+                       
+                      loginstate.isLoggedIn ? <a onClick={()=>{dispatch({type:"LOGOUT"});localStorage.removeItem("user"); localStorage.removeItem("isloggedin"); sessionStorage.removeItem("accessToken"); router.push("/") }}>Logout</a>   : <a onClick={()=>(setState(!state))}>Login</a>   } 
+                    
+                   </Link> 
+                  
+               </li>
+             
+           </ul>
+         
+            
+           
+
+       </nav>
+                </div>:""
+                 }
                 
 
             </nav>
+           
            
 
         </div>

@@ -5,6 +5,7 @@ import { RestaurantMenuTwoTone } from "@mui/icons-material";
 import {useContext,useEffect,useState} from "react";
 import {usercontext} from "../components/Context/UserContext";
 import axios from "axios";
+import {useRouter} from "next/router";
 
 // export async function getStaticPaths(){
 
@@ -55,8 +56,9 @@ import axios from "axios";
 
 export default function Bought(){
     const {customer}=useContext(usercontext);
-    const [bought,setBought]=useState([]);
+    // const [bought,setBought]=useState([]);
     const [ideas,setIdeas]=useState([]);
+    const router=useRouter();
 
     useEffect(()=>{
         axios.get(`http://localhost:3001/idea/ideascustomer/:${customer.id}`).then((res)=>{
@@ -73,18 +75,25 @@ export default function Bought(){
         <div>
             <Navbar/>
         <div className={styles.container}>
-            {ideas?.map((idea)=>{
+            {ideas ?
+              ideas.map((idea)=>{
 
-return(<div className={styles.card} key={idea.id}>
-
-    <p>{idea?.pitch}</p>
-    
-   </div>
-    
-    )
-    
-
-            })}
+                return(<>
+                    {idea ? <div className={styles.card} key={idea.id}>
+                
+                    <p>{idea?.pitch}</p>
+                    <footer>    <span>Bought:{idea.createdAt.substring(0,10)}</span></footer>
+                    
+                   </div>:<p>Buy some Ideas</p>
+                }
+                </>
+                    
+                    )
+                    
+                
+                            })
+            :router.push("/Ideas")}
+          
             
            
           

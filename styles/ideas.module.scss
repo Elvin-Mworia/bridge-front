@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import "global";
 .container{
     position:relative;
     width:100vw;
@@ -11,14 +12,34 @@
         height:3rem;
         justify-content:space-between;
         z-index:1000;
-        top:4rem;
+        top:3rem;
         background-color:white;
+        @media screen and (max-width:$tablet-view){
+            .shop{
+                h1{
+                    font-size:1rem;
+                }
+              
+            }
+            .iconleft{
+                margin-right:1rem;
+            }
+            section{
+                .cardcontainer{
+                    justify-content:center;
+                    align-items:center;
+                   
+                }}
+        
+
+        }
 
         h1{
             font-family:"Roboto",sans-serif;
             margin:.5rem 1rem;
             font-size:2.5rem;
             font-weight: bold;
+          
             
             
         }
@@ -143,5 +164,6 @@
 
         }
     }
+  
 
 }

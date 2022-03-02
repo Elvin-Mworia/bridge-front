@@ -11,7 +11,7 @@ import Blob3 from "../components/svg3.js";
 import Blob4 from "../components/svg4.js";
 import Blob5 from "../components/svg5.js";
 import Blob6 from "../components/svg6.js";
-import Login from "../components/login.js"
+
 import {useStripe, useElements, CardElement} from '@stripe/react-stripe-js';
 
 export default function Home() {
@@ -110,7 +110,7 @@ export default function Home() {
              <h2><span>$</span> 10</h2>
              <ul>
               <li>Unlimited pitches daily</li>
-               <li>Push notification feature</li>
+               
                <li>1 month free trial</li>
              
             </ul>

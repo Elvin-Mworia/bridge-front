@@ -40,7 +40,7 @@ useEffect(()=>{},[cartstate]);
         <div className={styles.container}>
             <Navbar/>
             <div className={styles.head}>
-                <div className={styles.shop}> <h1>Shop for <span>Idea$</span></h1>
+                <div className={styles.shop}> <h1>Shop for  <span>Idea$</span></h1>
                 <WbIncandescentSharpIcon className={styles.bulb}/>
                 </div>
                
