@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar.js";
 import axios from "axios";
 
 export async function getServerSideProps(){
-    const res=await fetch("http://localhost:3001/pitch/entrepreneur/:9092e2d0-63ad-4487-8ab6-79c16860f87e");
+    const res=await fetch(`${process.env.BACKEND_URL}:${process.env.PORT}/pitch/entrepreneur/:9092e2d0-63ad-4487-8ab6-79c16860f87e`);
     const ideas= await res.json();
     console.log(ideas);
      return {

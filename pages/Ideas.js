@@ -11,10 +11,11 @@ import {useRouter} from "next/router";
 
 export  async function getServerSideProps(){
     //     var list=[];
-    //    axios.get("http://localhost:3001/idea/").then((res)=>{
+    //    axios.get("${process.env.BACKEND_URL}:${process.env.PORT}/idea/").then((res)=>{
     //       list=[...res.data.json()]
     //    }); 
-       const res=await fetch("http://localhost:3001/idea/");
+       console.log(`${process.env.PORT}`);
+       const res=await fetch(`${process.env.BACKEND_URL}:${process.env.PORT}/idea/`);
        const idea= await res.json();
         return {
             props:{ideas:idea}

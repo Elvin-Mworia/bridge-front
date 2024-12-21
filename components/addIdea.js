@@ -10,7 +10,7 @@ export default function Idea({trigger,setTrigger}){
     const data={price:amount,pitch:idea,pitcherid:"3ca65014-80e2-45d4-9845-bb599c3a5da2"};
     function submit(e){
         e.preventDefault();
-        axios.post("http://localhost:3001/idea/create",data).then((res)=>{
+        axios.post(`${process.env.BACKEND_URL}:${process.env.PORT}/idea/create`,data).then((res)=>{
             setTrigger(!trigger);
         })
     }

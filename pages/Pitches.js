@@ -9,7 +9,7 @@ import {useState,useContext} from "react";
 
 // export async function getStaticPaths(){
 
-//     const res=await fetch("http://localhost:3001/pitch");
+//     const res=await fetch("${process.env.BACKEND_URL}:${process.env.PORT}/pitch");
 //     const pitches= await res.json();
 //  const paths=pitches.map((pitch)=>{
 //      return {
@@ -33,8 +33,8 @@ export  async function getServerSideProps(){
 //     user=JSON.parse(localStorage.getItem("user"));
 // }
      //  var pitch
-       const res=await fetch("http://localhost:3001/pitch");
-    //    var User=await fetch(`http://localhost:3001/user/:${user.id}`);
+       const res=await fetch(`${process.env.BACKEND_URL}:${process.env.PORT}/pitch`);
+    //    var User=await fetch(`${process.env.BACKEND_URL}:${process.env.PORT}/user/:${user.id}`);
     //   User=await res.json();
        const pitches= await res.json();
     //    console.log(pitches);

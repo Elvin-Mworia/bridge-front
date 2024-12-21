@@ -17,7 +17,7 @@ const{customer,Dispatch}=useContext(usercontext);
 
 function submit(e){
     const data={email,password}
-    axios.post("http://localhost:3001/auth/login",data).then((res)=>{
+    axios.post(`${process.env.BACKEND_URL}:${process.env.PORT}/auth/login`,data).then((res)=>{
       const data=res.data.user;
       const user={
           customer: data.customer,

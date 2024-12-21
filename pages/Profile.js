@@ -11,9 +11,9 @@ import Image from "next/image";
 import profilepic from "../components/profilepic.png";
 // export async function getStaticProps(){
 //     const {customer}=useContext(usercontext);
-//     const resp=await fetch("http://localhost:3001/user/:3ca65014-80e2-45d4-9845-bb599c3a5da2");
+//     const resp=await fetch("${process.env.BACKEND_URL}:${process.env.PORT}/user/:3ca65014-80e2-45d4-9845-bb599c3a5da2");
 //     const user=await resp.json();
-//     const res=await fetch("http://localhost:3001/bio/:3ca65014-80e2-45d4-9845-bb599c3a5da2");
+//     const res=await fetch("${process.env.BACKEND_URL}:${process.env.PORT}/bio/:3ca65014-80e2-45d4-9845-bb599c3a5da2");
 //     const bio=await res.json();
    
 //  //    console.log(pitches);
@@ -49,11 +49,11 @@ const data={
 }
 
 useEffect( ()=>{
-    axios.get(`http://localhost:3001/user/:${customer.id}`).then((res)=>{
+    axios.get(`${process.env.BACKEND_URL}:${process.env.PORT}/user/:${customer.id}`).then((res)=>{
        
          setUser(res.data);
     })
-    axios.get(`http://localhost:3001/bio/data/:${customer.id}`).then((res)=>{
+    axios.get(`${process.env.BACKEND_URL}:${process.env.PORT}/bio/data/:${customer.id}`).then((res)=>{
         console.log(res.data);
         setBio(res.data);
     })
@@ -65,7 +65,7 @@ useEffect( ()=>{
 function submit(e){
     e.preventDefault();
     console.log(images);
-    axios.post(`http://localhost:3001/bio/update/:${customer.id}`,data).then((res)=>{
+    axios.post(`${process.env.BACKEND_URL}:${process.env.PORT}/bio/update/:${customer.id}`,data).then((res)=>{
         console.log(res.data);
         alert("Profile updated successfully");
     });

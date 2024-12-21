@@ -40,14 +40,14 @@ const result = await stripe.createPaymentMethod({
           "amount":cartstate.Amount*100
 
         }
-        const res = await axios.post('http://localhost:3001/stripe/pay',data);
+        const res = await axios.post(`${process.env.BACKEND_URL}:${process.env.PORT}/stripe/pay`,data);
         alert("Your payment has been received");
         localStorage.removeItem("cartstate");
         ids.forEach((id,index,arr)=>{
           const ideabought={
             customerid:customer.id,
             ideaid:id};
-            axios.post("http://localhost:3001/idea/bought",ideabought);
+            axios.post(`${process.env.BACKEND_URL}:${process.env.PORT}/idea/bought`,ideabought);
 
           
         })

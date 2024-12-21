@@ -7,7 +7,7 @@ import axios from "axios";
 
 export async function getStaticPaths(){
 
-    const res=await fetch("http://localhost:3001/pitch");
+    const res=await fetch(`${process.env.BACKEND_URL}:${process.env.PORT}/pitch`);
     const pitches= await res.json();
  const paths=pitches.map((pitch)=>{
      return {
@@ -28,15 +28,15 @@ export  async function getStaticProps(context){
         const id=context.params.id
       var pitch={};
 
-       axios.get(`http://localhost:3001/pitch/:${id}`).then((res)=>{
+       axios.get(`${process.env.BACKEND_URL}:${process.env.PORT}/pitch/:${id}`).then((res)=>{
        
         pitch=res.data;
         console.log(pitch);
           
     })
        
-       const bio= await fetch(`http://localhost:3001/bio/data/:${pitch.entreprenuer}`);
-       const users= await fetch(`http://localhost:3001/user/:${pitch.entreprenuer}`);
+       const bio= await fetch(`${process.env.BACKEND_URL}:${process.env.PORT}/bio/data/:${pitch.entreprenuer}`);
+       const users= await fetch(`${process.env.BACKEND_URL}:${process.env.PORT}/user/:${pitch.entreprenuer}`);
       const biodata=await bio.json();
       const user=await users.json();
        const pitches= pitch;

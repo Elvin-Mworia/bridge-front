@@ -13,7 +13,7 @@ export default function Add(){
  
     function submit(e){
         e.preventDefault();
-   axios.post("http://localhost:3001/pitch/create",data).then((res)=>{
+   axios.post(`${process.env.BACKEND_URL}:${process.env.PORT}/pitch/create`,data).then((res)=>{
        setValue("");
        alert("Your pitch was submitted,Thank you and all the best");
    })

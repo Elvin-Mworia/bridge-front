@@ -64,7 +64,7 @@ import {useRouter} from "next/router";
      
     }
     const final=async ()=>{
-        axios.post("http://localhost:3001/auth/register",data).then((res)=>{
+        axios.post(`${process.env.BACKEND_URL}:${process.env.PORT}/auth/register`,data).then((res)=>{
                     //redirect to home and  login
                     router.push("/");
     })
@@ -100,7 +100,7 @@ import {useRouter} from "next/router";
           "price":price
 
         }
-        const res = await axios.post('http://localhost:3001/stripe/sub',data);
+        const res = await axios.post(`${process.env.BACKEND_URL}:${process.env.PORT}/stripe/sub`,data);
         // eslint-disable-next-line camelcase
         const {client_secret, status} = res.data;
         final();
@@ -120,13 +120,13 @@ import {useRouter} from "next/router";
           });
         } 
       }
-            //   axios.post("http://localhost:3001/stripe/sub",{email,plan,token}).then((res)=>{
+            //   axios.post("${process.env.BACKEND_URL}:${process.env.PORT}/stripe/sub",{email,plan,token}).then((res)=>{
             //       console.log(res)
             
             //   })
           }
           else{
-            axios.post("http://localhost:3001/stripe/pay",{email,amount:"2000"}).then((res)=>{
+            axios.post(`${process.env.BACKEND_URL}:${process.env.PORT}/stripe/pay`,{email,amount:"2000"}).then((res)=>{
                 console.log(res)
                 final();
                 alert("please login and fill in the details in your profile to make it easier for investors to contact you")

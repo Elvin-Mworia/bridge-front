@@ -9,7 +9,7 @@ import {useRouter} from "next/router";
 
 // export async function getStaticPaths(){
 
-//     const res=await fetch("http://localhost:3001/pitch");
+//     const res=await fetch("${process.env.BACKEND_URL}:${process.env.PORT}/pitch");
 //     const pitches= await res.json();
 //  const paths=pitches.map((pitch)=>{
 //      return {
@@ -35,11 +35,11 @@ import {useRouter} from "next/router";
   
 //         var tray=[];
 //         var idea=[];
-//        const res=await fetch(`http://localhost:3001/idea/ideasbought/:${state.id}`);
+//        const res=await fetch(`${process.env.BACKEND_URL}:${process.env.PORT}/idea/ideasbought/:${state.id}`);
 //           res.map((r)=>(tray.push(r.ideaid)));
 //           tray.map(async (r)=>{
 
-//             const pitch=await fetch(`http://localhost:3001/idea/ideas/id:${r}`);
+//             const pitch=await fetch(`${process.env.BACKEND_URL}:${process.env.PORT}/idea/ideas/id:${r}`);
 //              idea.push(pitch);
 //              return pitch;
 
@@ -61,11 +61,11 @@ export default function Bought(){
     const router=useRouter();
 
     useEffect(()=>{
-        axios.get(`http://localhost:3001/idea/ideascustomer/:${customer.id}`).then((res)=>{
+        axios.get(`${process.env.BACKEND_URL}:${process.env.PORT}/idea/ideascustomer/:${customer.id}`).then((res)=>{
             setIdeas(res.data);
             })
     //   bought.forEach((b,index,arr)=>{
-    //         axios.get(`http://localhost:3001/idea/ideas/:${b.ideaid}`).then((res)=>{
+    //         axios.get(`${process.env.BACKEND_URL}:${process.env.PORT}/idea/ideas/:${b.ideaid}`).then((res)=>{
     //             setIdeas(res.data);
     //             console.log(ideas);
     //         })
